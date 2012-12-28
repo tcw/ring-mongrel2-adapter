@@ -79,8 +79,8 @@ and a map of HTTP headers."
   (let [ctx (ZMQ/context 1)
         sub (.socket ctx ZMQ/SUB)
         pub (.socket ctx ZMQ/PUB)
-        recv-spec (or (:recv-spec options) "tcp://127.0.0.1:9997")
-        send-spec (or (:send-spec options) "tcp://127.0.0.1:9996")]
+        recv-spec (or (:recv-spec options) "tcp://127.0.0.1:5566")
+        send-spec (or (:send-spec options) "tcp://127.0.0.1:5565")]
     (.connect sub recv-spec)
     (.subscribe sub (.getBytes ""))
     (.connect pub send-spec)
